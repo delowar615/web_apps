@@ -1,0 +1,593 @@
+@font-face {
+    font-family: "Gilroy";
+    src:
+        url("../fonts/Gilroy-Regular.ttf"),
+        url("../fonts/Gilroy-Bold.ttf") format("truetype");
+    font-weight: 400 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "DMSans";
+    src: url("../fonts/DMSans-VariableFont.ttf") format("truetype");
+    font-weight: 400 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-VariableFont.ttf") format("truetype");
+    font-weight: 400 700;
+    font-display: swap;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Gilroy", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #efefef;
+}
+
+.container {
+    width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Минимальная высота = высоте окна браузера */
+    margin: 0;
+}
+.nav-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+.header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 45px 80px;
+}
+.logo__img {
+    height: 35px;
+}
+.nav__list {
+    display: flex;
+    gap: 30px;
+}
+.nav__link {
+    color: #ffffff;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.nav__link:hover {
+    color: #e58411;
+}
+.bag {
+    position: relative;
+}
+.bag__img {
+    width: 34px;
+}
+.bag-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #e58411;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+/* --- БУРГЕР КНОПКА --- */
+.burger-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 102;
+}
+
+.burger-btn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+.burger-btn span:nth-child(1) {
+    top: 0;
+}
+.burger-btn span:nth-child(2) {
+    top: 9px;
+}
+.burger-btn span:nth-child(3) {
+    top: 18px;
+}
+
+/* Анимация бургера в крестик */
+.burger-btn.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 9px;
+}
+.burger-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+.burger-btn.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 9px;
+}
+
+/* --- МОБИЛЬНОЕ МЕНЮ --- */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(20, 20, 20, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 101;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* Скрыто по умолчанию (сдвинуто вверх) */
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out;
+}
+
+.mobile-menu.active {
+    transform: translateY(0);
+}
+
+.mobile-nav-list {
+    text-align: center;
+}
+
+.mobile-nav-list li {
+    margin: 20px 0;
+}
+
+.mobile-nav-list a {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.mobile-nav-list a:hover {
+    color: #e58411;
+}
+
+/* Кнопка закрытия внутри меню */
+.close-menu-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 40px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 103;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.close-menu-btn:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.hero-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #000;
+}
+
+.hero-container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    aspect-ratio: 1920 / 1084;
+    overflow: hidden;
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-content {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 80%;
+    max-width: 900px;
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info__title {
+    color: #fff;
+    font-size: 4.5vw;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.info__text {
+    color: #fff;
+    font-size: 1.4vw;
+    line-height: 1.3;
+    margin-bottom: 40px;
+    max-width: 610px;
+    text-align: center;
+    opacity: 0.9;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Поиск */
+.search-container {
+    pointer-events: auto;
+    display: inline-flex;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    padding: 5px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.search-input {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    width: 100%;
+    outline: none;
+}
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-btn {
+    background: #e58411;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- ХОТСПОТЫ --- */
+.hotspots-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.hotspot {
+    position: absolute;
+    pointer-events: auto;
+}
+
+.hotspot--sofa {
+    top: 68%;
+    left: 20%;
+}
+.hotspot--lamp {
+    top: 72%;
+    left: 8%;
+}
+
+.hotspot--table {
+    top: 75%;
+    left: 55%;
+}
+
+.hotspot--edge {
+    top: 84%;
+    left: 95%;
+}
+
+.hotspot-toggle {
+    display: none;
+}
+
+.hotspot-btn {
+    display: flex;
+    width: 3vw;
+    height: 3vw;
+    min-width: 30px;
+    min-height: 30px;
+    max-width: 50px;
+    max-height: 50px;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+.hotspot-btn img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Попап */
+.hotspot__popup {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    border-radius: 12px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+.hotspot-toggle:checked ~ .hotspot__popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.color-swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    cursor: pointer;
+}
+.orange {
+    background: #e58411;
+}
+.teal {
+    background: #00d2ad;
+}
+.gray {
+    background: #7c7c7c;
+}
+
+.main {
+    flex: 1;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer__wrapper {
+    margin-top: 118px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    text-align: start;
+
+}
+
+.footer__col1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 140px;
+    max-width: 290px;
+    height: 146px;
+}
+
+.footer__col1 img {
+    width: 78px;
+    height: 35px;
+    /* margin-bottom: 30px; */
+}
+
+.footer__col1 p {
+    margin: 0;
+    padding: 0;
+    font-family: 'DMSans';
+}
+
+.footer__col2,
+.footer__col3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 80px;
+    max-width: 133px;
+    height: 146px;
+
+}
+
+.footer__title{
+    margin: 0;
+    color: #e58411;
+    font-family: 'DMSans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.footer__list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer__col3 {
+    margin-right: 20px;
+    max-width: 290px;
+}
+
+.footer_copy{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    margin: 0;
+    padding: 0;
+    font-family: 'DMSans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.footer_info{
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* --- АДАПТИВ --- */
+@media (max-width: 768px) {
+    .header__wrapper {
+        padding: 20px;
+    }
+    .nav {
+        display: none;
+    } /* Скрываем меню для примера */
+
+    /* Текст на мобильном */
+    .hero-content {
+        top: 10%; /* Чуть выше на мобильном */
+        width: 90%;
+    }
+    .info__title {
+        font-size: 32px;
+        margin-bottom: 5px;
+    }
+    .info__text {
+        font-size: 14px;
+        margin-bottom: 20px;
+        width: 300px;
+    }
+    .search-container {
+        max-width: 100%;
+        width: 250px;
+        height: 35px;
+    }
+
+    .search-btn {
+        width: 25px;
+        height: 25px;
+    }
+
+    .search-input {
+        padding: 10px 15px;
+    }
+
+    /* Хотспоты */
+    .hotspot-btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* Попап снизу */
+    .hotspot__popup {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: auto;
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        transform: translateY(100%);
+        background: rgba(30, 30, 30, 0.95);
+        justify-content: center;
+        padding: 20px;
+    }
+    .hotspot__popup::after {
+        display: none;
+    }
+    .hotspot-toggle:checked ~ .hotspot__popup {
+        transform: translateY(0);
+    }
+}
