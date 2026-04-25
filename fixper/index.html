@@ -6,51 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/maun.js" defer></script>
+    <script src="js/main.js" defer></script>
     <title>Document</title>
 </head>
 
 <body>
-    <section class="hero">
+    <header class="header">
         <div class="container">
-            <header class="header">
-                <div class="header__wrapper">
-                    <a href="#" class="logo">
-                        <img src="./img/logo.png" alt="logo">
-                    </a>
-                    <nav class="nav">
-                        <ul class="nav__list">
-                            <li class="nav__item">
-                                <a href="#" class="nav__link">Диагностика</a>
-                            </li>
-                            <li class="nav__item">
-                                <a href="#" class="nav__link">Стоимость</a>
-                            </li>
-                            <li class="nav__item">
-                                <a href="#" class="nav__link">Мастера</a>
-                            </li>
-                            <li class="nav__item">
-                                <a href="#" class="nav__link">Отзывы</a>
-                            </li>
-                            <li class="nav__item">
-                                <a href="#" class="nav__link">Вопросы</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="btn__wrapper">
-                    <button class="geo">
-                        <img src="./img/geo.png" alt="geo" class="geo__img">
-                        <span class="geo">Москва</span>
-                    </button>
-                    <button class="call">Вопросы</button>
-                </div>
-                <button id="burgerBtn" class="burger-btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </header>
+            <div class="header__wrapper">
+                <a href="#" class="logo">
+                    <img src="./img/logo.png" alt="logo">
+                </a>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#" class="nav__link">Диагностика</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link">Стоимость</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link">Мастера</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link">Отзывы</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link">Вопросы</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="header-right">
+                <img src="./img/geo.png" alt="geo" class="geo__img">
+                <span class="city">
+                    Москва
+                </span>
+                <button class="btn-call">Позвонить</button>
+            </div>
+            <button class="burger" onclick="openMobileMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close" onclick="closeMobileMenu()">×</button>
+        <a href="#diagnostic" onclick="closeMobileMenu()">Диагностика</a>
+        <a href="#pricing" onclick="closeMobileMenu()">Стоимость</a>
+        <a href="#team" onclick="closeMobileMenu()">Мастера</a>
+        <a href="#reviews" onclick="closeMobileMenu()">Отзывы</a>
+        <a href="#faq" onclick="closeMobileMenu()">Вопросы</a>
+        <a href="#contact" onclick="closeMobileMenu()">Контакты</a>
+        <button class="btn-call" style="font-size:16px;padding:12px 32px;">Позвонить</button>
+    </div>
+
+    <section class="hero">
+        <div class="hero-info">
+            <img class="hero__img" src="./img/hero_img.png" alt="">
+            <div class="hero-content">
+                <h1>Ремонт стиральных машин на дому с годовой гарантией</h1>
+                <p><span>Отремонтируем на дому</span> или бесплатно завезем и доставим обратно из сервисного центра</p>
+                <a href="#cta" class="btn-hero">Заказать звонок</a>
+            </div>
+        </div>
+
+        <div class="promo-bar">
+            <div class="container">
+                <div class="promo-dot"></div>
+                <span>Мы открыты и принимаем заказы до 21:00, позвоните сейчас и мы сделаем скидку 15%</span>
+                <span class="promo-link">Получить скидку →</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="hero">
+        <div class="container">
             <div class="hero__content">
                 <div class="hero__wrapper">
                     <h1 class="hero__title">
@@ -58,13 +91,24 @@
                     </h1>
                     <p class="hero__text">
                         <span>Отремонтируем на дому</span>
-                         или бесплатно завезем и доставим обратно из сервисного центра
+                        или бесплатно завезем и доставим обратно из сервисного центра
                     </p>
                     <button class="hero__btn">Заказать звонок</button>
                 </div>
             </div>
+            <div class="hero__discount">
+                <div class="hero__discount__wrapper">
+                    <img src="./img/Group 417.png" alt="hero_discount">
+                    <img src="./img/Ellipse 85.png" alt="">
+                    <span>Мы открыты и принимаем заказы до 21:00, позвоните сейчас и мы сделаем скидку 15%</span>
+                    <button class="hero__discount__btn">
+                        <span> Получить скидку</span>
+                        <img src="./img/Arrow 1.png" alt="">
+                    </button>
+                </div>
+            </div>
         </div>
-    </section>
+    </section> -->
 
 
     <footer class="footer">
